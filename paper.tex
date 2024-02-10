@@ -81,13 +81,13 @@ Sebastian Schellhorn
 \begin{abstract}
   %\begin{itemize}%
     %\item%
-    Education is a fundamental component of universities and is intricately linked with the time-consuming non-trivial task of creating suitable timetables for teaching. 
+    Education is a fundamental component of universities and is linked with the non-trivial possibly time-consuming task of creating suitable timetables for teaching. 
     %\item%
     The corresponding problem is known as Curriculum-Based Course Timetabling, which takes into account various constraints while seeking a conflict-free timetable. \\
     %\item% 
     We addressed this problem by following a knowledge representation and reasoning approach, describing constraints and feasible assignments of courses to time slots. 
     %\item% 
-    Possible assignments are gathered through a prototypical web interface, and the corresponding constraints are respected by finding automatically a timetable using an AI. \\
+    Possible assignments are gathered through a prototypical web interface, and the corresponding constraints are respected by automatically finding a timetable using an AI. \\
     %\item%  
     We discuss the resolved redundancies, time saved and potential future benefits when comparing the traditional and new approach regarding the needs at the University of Potsdam. 
   %\end{itemize}%
@@ -142,7 +142,7 @@ Sebastian Schellhorn
   %\item%
   The idea is to find a solution from the time slots specified by lecturers rather than permitting any course to potentially take place at any time slot.
   %\item%
-  As a goal, the obtained timetables should automatically result into according room reservations at universities course catalog.  
+  As a goal, the obtained timetables should automatically result into corresponding room reservations at universities course catalog.  
   %\item% 
   In comparing the new and traditional approach, we sketch resolved redundancies, time savings and possible future benefits. 
 %\end{itemize}%
@@ -162,23 +162,23 @@ Sebastian Schellhorn
   %\item% 
   Each curriculum is defined by referring to modules needed to be accomplished. 
   %\item% 
-  Modules specify the number and type of courses and course components, along with their secondary and primary examination tasks. 
+  Modules specify the number and type of courses and course components, along with their primary and secondary examination tasks. 
   %\item%
   For simplicity, in the following, we use the term \textit{courses} to refer to both courses and course components, explicitly indicating the distinction when necessary. 
   %\item% 
-  Courses are linked to, possibly several, secondary and sometimes primary examination tasks of a set of modules. 
+  Courses are linked to, possibly several, secondary and sometimes primary examination tasks within a set of modules. 
   %\item%  
   As modules are associated with possibly several curricula, the linkage of examination tasks to courses induces involved curricula and cohorts possibly participate to a course. 
   %\item% 
   Whenever a module occurs in several curricula, possibly of different institutes or faculties, then the objective to find a conflict-free timetable becomes more complicated. \\
   %\item% 
-  In the traditional case, lectures with a big number of participants are planned first, due to a limited number of large lecture halls and imports/exports of courses among curricula. 
+  In the traditional case, lectures with a large number of participants are planned first, due to a limited number of large lecture halls and imports/exports of courses among curricula. 
   %\item% 
-  The resulting timetable regarding big lectures, needs a lot of communication and agreements among several planners to ensure a conflict-free timetable for involved cohorts and lecturers. 
+  The resulting timetable regarding large lectures, needs a lot of communication and agreements among several planners to ensure a conflict-free timetable for involved cohorts and lecturers. 
   %\item% 
-  Especially, in the case of degree programmes that aim to train teachers with allowed combinations of topics, \UP{} has developed a time frame model to prevent conflicts among courses of most common combinations of topics\footnote{https://www.uni-potsdam.de/en/studium/studying/organizing-your-studies/potsdams-time-frame-model}.
+  Especially, in the case of degree programmes that aim to train teachers with allowed combinations of subjects, \UP{} has developed a time frame model to prevent conflicts among courses of most common combinations of topics\footnote{https://www.uni-potsdam.de/en/studium/studying/organizing-your-studies/potsdams-time-frame-model}.
   %\item% 
-  On top of scheduled big lectures, the remaining courses are planned by the respective planners of each institute to achieve suitable timetables. 
+  On top of scheduled large lectures, the remaining courses are planned by the respective planners of each institute to achieve suitable timetables. 
   %\item% 
   A timetable should avoid conflicts regarding multiple use of rooms, lecturers and cohorts as well as respecting particular demands of courses, like technical equipment.
   %\item% 
@@ -205,11 +205,11 @@ Sebastian Schellhorn
     \label{fig:web interface}
   \end{figure}
   %\item% 
-  We identified and provided four pairwise relations to capture significant constraints among course components:
+  We identified and provided four pairwise relations to capture significant constraints among course components: \newpage
   \begin{itemize}
     \item Two course components are not allowed to take place in parallel, e.g. obligatory lectures for the same cohort.
     \item Two course components have to take place in parallel (same time slot, but different rooms), e.g. two groups of exercises for the same course.
-    \item Two course components have to take place simultaneous (same time slot and room), e.g. hosting two seminars sharing major content in the same room.
+    \item Two course components have to take place simultaneous (same time slot and room), e.g. hosting two seminars, with different names but sharing major content, in the same room.
     \item Two course components have to take place consecutive, e.g. having an exercise directly after the corresponding lecture. 
   \end{itemize}
   %\item%
@@ -232,7 +232,7 @@ Sebastian Schellhorn
   %\item% 
   The resulting timetable for each institute must be (automatically) transferred to the university's course catalog, taking into account linked modules, lecturers, time slots, and rooms.
   %\item% 
-  The final step of automatically integrating the obtained timetable into the course catalog is not yet implemented in the prototype but will eliminate many redundancies.
+  The final step of automatically integrating the obtained timetable into the course catalog is not yet implemented in the prototype but will eventually eliminate many redundancies.
 %\end{itemize}%
 
 
@@ -385,7 +385,7 @@ Sebastian Schellhorn
 \label{subsec:modeling}
 %\begin{itemize}%
   %\item% 
-  Since a course may consists of several course components of possibly different types, e.g. a lecture and an exercise, we identify a course component by a unique tuple of a name and its type, e.g. lecture \textit{(``AI'', v)} and exercise \textit{(``AI'', u)} of Artificial Intelligence course. \\
+  Since a course may consists of several course components of possibly different types, e.g. a lecture and an exercise, we identify a course component by a unique tuple of a name and its type, e.g. lecture \textit{(``AI'', v)} and exercise \textit{(``AI'', u)} of the course named Artificial Intelligence. \\
   %\item%
   We modeled the following hard (H0-8) and soft (S0-13) constraints. 
 
@@ -403,21 +403,21 @@ Sebastian Schellhorn
 
   \textbf{H6.} Parallel: Two course components have to take place in parallel, whenever explicitly stated.
 
-  \textbf{H7.} Simultaneous: Two course components have to take place simultaneous, whenever explicitly stated.
+  \textbf{H7.} Simultaneous: Two course components have to take place simultaneously, whenever explicitly stated.
 
-  \textbf{H8.} Consecutive: Two course components have to be scheduled consecutive, whenever explicitly stated.
+  \textbf{H8.} Consecutive: Two course components have to be scheduled consecutively, whenever explicitly stated.
 
-  \textbf{S0.} Availability: For each course component, try to serve prioritized availability on time slot and room. The penalty points reflecting corresponding priorities.  
+  \textbf{S0.} Availability: For each course component, try to serve prioritized availability on time slot and room. The penalty points reflect corresponding priorities.  
 
-  \textbf{S1.} RoomCapacity: For each course component, penalty points for the number of students that are expect to attend the course minus the number of seats in the corresponding room are imposed on each violation. 
+  \textbf{S1.} RoomCapacity: For each course component, penalty points for the number of students that are expected to attend the course minus the number of seats in the corresponding room are imposed on each violation. 
 
   \textbf{S2.} Cohort: Course components addressed to the same cohort should be scheduled in different time slots, except explicitly stated to be in parallel. Each violation counts as a penalty point. 
 
-  \textbf{S3.} Gaps: For a cohort as well as lecturer, corresponding course components should be scheduled in time slots as close as possible. The penalty regarding two courses sharing a cohort or lecturer, and a day is given by subtracting the earlier time from the later time. 
+  \textbf{S3.} Gaps: For a cohort as well as a lecturer, corresponding course components should be scheduled in time slots as close as possible. The penalty regarding two courses sharing a cohort or lecturer and a day is given by subtracting the earlier time from the later time. 
 
-  \textbf{S4.} RoomStability: Two course components stated to be consecutive should be booked in the same room. The penalty points reflecting each violation. 
+  \textbf{S4.} RoomStability: Two course components stated to be consecutive should be booked in the same room. The penalty points reflect each violation. 
 
-  \textbf{S5.} MaxLoad: For a cohort as well as lecturer the number of corresponding course components per day should be lower or equal to a given maximum. The penalty points reflecting the number of courses above the maximum. 
+  \textbf{S5.} MaxLoad: For a cohort as well as lecturer the number of corresponding course components per day should be lower or equal to a given maximum. The penalty points reflect the number of courses beyond the maximum. 
 
   \textbf{S6.} TravelTime: For a cohort as well as a lecturer, traveling time between rooms with two adjacent course components should be as small as possible. The penalty is reflected by the traveling time itself. 
 
@@ -430,7 +430,7 @@ Sebastian Schellhorn
   %\item% 
   Optimization aims to minimize penalty points associated with the aforementioned soft constraints. \\
   %\item%
-  The system of \cite{bainkaokscsotawa18a}, reads instances in a standard input format \cite{bocegasc12a}, translates them into \ASP{} facts and assigns potentially any course to any time slot. 
+  The system of \cite{bainkaokscsotawa18a} reads instances in a standard input format \cite{bocegasc12a}, translates them into \ASP{} facts and assigns potentially any course to any time slot. 
   %\item%
   In contrast, we employed a direct modeling approach tailored to the constraints and requirements of the \UP{}, which partially is not covered by the standard input format. 
   %\item%
@@ -443,31 +443,31 @@ Sebastian Schellhorn
 \label{sec:impact}
 %\begin{itemize}%
   %\item%
-  In \cite{bainkaokscsotawa18a}, it was demonstrated that addressing \CBCTT{} problems through an \ASP{}-based approach outperforms state-of-the-art approaches and thus makes it well-suited to tackle \CBCTT{} problems. 
+  In \cite{bainkaokscsotawa18a}, it was demonstrated that addressing \CBCTT{} problems through an \ASP{}-based approach outperforms other state-of-the-art approaches and thus makes it well-suited to tackle \CBCTT{} problems. 
   %\item% 
-  Our real world approach is still at a prototypical stage and is lacking access to some data needed to apply all presented and modeled constraints. \\
+  Our real world approach is still at a prototypical stage and it is lacking access to some data needed to apply all presented and modeled constraints. \\
   %\item%
-  For the winter semester of 2023/24, an optimal and conflict-free plan was found for approximately 160 courses aimed at big lecture halls of the Faculty of Science, all 90 courses of the Institute of Mathematics and 100 courses of the Institute of Computer Science, incorporating constraints H1, H3, H5, S0, S1 and S7 from the above \ASP{}-based modeling. 
+  For the winter semester of 2023/24, an optimal and conflict-free plan was found for approximately 160 courses aimed at big lecture halls of the Faculty of Science, additional 90 courses of the Institute of Mathematics and 100 courses of the Institute of Computer Science, incorporating constraints H1, H3, H5, S0, S1 and S7 from the above \ASP{}-based modeling. 
   %\item% 
   Analogously, for the summer semester of 2024, an optimal and conflict-free plan was found involving about 200 courses and constraints H0, H1, H3, H5, H6, H7, H8, S0, S1, S4 and S7.  
   %\item% 
-  The \clingo{} solver was integrated into the web interface and required approximately  170 seconds for the winter and less than one second for the summer semester, respectively, to solve the problem for the faculty. 
+  The \clingo{} solver was integrated into the web interface and required approximately  170 seconds for the winter and less than one second for the summer semester, respectively, to schedule the curricula for the faculty. 
   %\item% 
-  Finding plans for the institutes took less than a second, respectively. 
+  Finding plans for each institute took less than a second. 
   %\item%
   The time required to solve these problems relative to the number of involved courses highlights the exponential complexity inherent in \CBCTT{} problems. 
   %\item% 
-  For this reason, it is crucial to maintain a workflow that breaks down the planning task into several smaller tasks, as the traditional approach does. \\
+  For this reason, it is crucial to maintain a workflow that breaks down the planning task into several smaller tasks, similar to the traditional approach. \\
   %\item% 
   A major benefit of the presented AI-based approach is its fairness, transparency and elaboration tolerance. 
   %\item% 
-  Thanks to its elaboration tolerance, the existing encoding can be reused for searching a plan for each upcoming semester and depends only on given courses. 
+  Thanks to its elaboration tolerance, the existing encoding can be reused for finding a plan for each upcoming semester as it only depends on given courses. 
   %\item% 
-  It is possible to add new constraints or relax existing ones whenever needed to address the special needs of particular institutes or faculties. 
+  It is possible to add new constraints or relax existing ones whenever needed to address the particular demands of institutes or faculties. 
   %\item% 
   Planners and lecturers can set a prioritized selection of availabilities and preferences for upcoming teaching periods, resulting in an optimal and provably conflict-free timetable.
   %\item% 
-  Obtaining a conflict-free timetable for a faculty in a matter of seconds, while respecting dependencies among several institutes at the same time, resolves a significant amount of communication overhead and conflicts inherent in the earlier approach. 
+  Obtaining a conflict-free timetable for a faculty in a matter of seconds, while respecting dependencies among the several institutes at the same time, resolves a significant amount of communication overhead and conflicts inherent in the traditional approach. 
   %\item% 
   Thus, our approach provides planners with the opportunity to allocate their additional available time to other tasks. \\
   %\item% 
@@ -488,7 +488,7 @@ Sebastian Schellhorn
 \label{sec:future}
 %\begin{itemize}%
   %\item% 
-  For the future, we plan to implement an interface that allows us to access data such as previous course catalogues, curricula, and their modules.
+  In future, we plan to implement an interface that allows us to access data such as previous course catalogues, curricula, and their modules.
   %\item% 
   Furthermore, we plan to develop an interface that allows us to automatically push final timetables to the university's course catalog. \\
   %\item% 
@@ -496,7 +496,7 @@ Sebastian Schellhorn
   %\item% 
   In a next step, we plan to expand the number of users and involve them in a feedback loop to enhance the usage of the system and identify additional needs.
   %\item% 
-  In a long run, one could think about to add functionalities such as drag and drop to manually incorporate smaller changes to a calculated timetable, while preserving consistency regarding hard and soft constraints. \\
+  In the long run, one could think about adding functionalities such as drag and drop to manually incorporate smaller changes to a calculated timetable, while preserving consistency regarding hard and soft constraints. \\
   %\item% 
   When establishing the mentioned workflow to obtain conflict-free timetables, one could measure the average amount of time needed per planner using the traditional and new approach, respectively.
   %\item% 
@@ -508,7 +508,7 @@ Sebastian Schellhorn
   %\item% 
   One could consider possibly leveraging entered availabilities and the number of participants to derive the location, size, and quantity of needed lecture halls and seminar rooms when planning to build new ones. \\
   %\item% 
-  Finally, our approach has significant potential to eliminate redundancies, save money, and elevate administrative planning tasks to the next level.
+  Finally, our approach has significant potential to eliminate redundant workflows, save money, and elevate administrative planning tasks to the next level. 
 %\end{itemize}% 
 
 
