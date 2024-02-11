@@ -39,7 +39,7 @@
 %%
 % Regular title as in the article class.
 %
-\title{AI-Based Tool for Curriculum-Based Course Timetabling of University of Potsdam}
+\title{AI-Based Tool for Curriculum-Based Course Timetabling at the University of Potsdam}
 
 % Authors are joined by \and. Their affiliations are given by \inst, which indexes
 % into the list defined using \institute
@@ -83,13 +83,13 @@ Sebastian Schellhorn
     %\item%
     Education is a fundamental component of universities and is linked with the non-trivial possibly time-consuming task of creating suitable timetables for teaching. 
     %\item%
-    The corresponding problem is known as Curriculum-Based Course Timetabling, which takes into account various constraints while seeking a conflict-free timetable. \\
+    The corresponding problem is known as Curriculum-Based Course Timetabling, which takes into account various constraints while seeking a conflict-free timetable. %\\
     %\item% 
     We addressed this problem by following a knowledge representation and reasoning approach, describing constraints and feasible assignments of courses to time slots. 
     %\item% 
-    Possible assignments are gathered through a prototypical web interface, and the corresponding constraints are respected by automatically finding a timetable using an AI. \\
+    Possible assignments are gathered through a prototypical web interface, and the corresponding constraints are respected by automatically finding a timetable using an AI. %\\
     %\item%  
-    We discuss the resolved redundancies, time saved and potential future benefits when comparing the traditional and new approach regarding the needs at the University of Potsdam. 
+    We discuss the resolved redundancies, time saved and potential future benefits when comparing the traditional and new approach regarding the needs of teachers, students and administration at the University of Potsdam. 
   %\end{itemize}%
 \end{abstract}
 
@@ -114,7 +114,7 @@ Sebastian Schellhorn
 
 %\begin{itemize}%
   %\item% 
-  Education is a fundamental component of universities, usually addressed by offering a variety of courses that may include lectures, exercises, seminars, projects, etc., within a defined study program. 
+  Education is a fundamental component of universities, usually addressed by offering a variety of courses that may include lectures, exercises, seminars, projects, etc., within defined study programs. 
   %\item% 
   In order to obtain optimal timetables, all offered courses must be assigned to a time slot and room, while respecting some hard and soft constraints. 
   %\item%
@@ -123,6 +123,8 @@ Sebastian Schellhorn
   The associated problem is known as Curriculum-Based Course Timetabling (\CBCTT{}; \cite{becaroto15}), which takes into account various constraints when seeking a conflict-free timetable. 
   %\item%
   A solution to a \CBCTT{} problem is an assignment of courses to time slots and rooms, such that each corresponding hard constraint is satisfied. 
+  %\item%
+  For instance, there should be no more than one course assigned to a room and time slot, except when explicitly stated.
   %\item% 
   An optimal solution is a solution with minimal penalties regarding soft constraints. \\
   %\item% 
@@ -136,20 +138,24 @@ Sebastian Schellhorn
   %\item%
   Thanks to its simple modeling language and high-performance solving capabilities, Answer Set Programming (\ASP{}; \cite{baral02a}) is a well-suited approach for knowledge representation and reasoning in modeling \CBCTT{} problems, as demonstrated by \cite{bainkaokscsotawa18a}.
   %\item% 
-  We developed a prototypical web interface allowing planners and lecturers to enter availabilities for teaching times and suited rooms regarding courses. 
+  We developed a prototypical web interface allowing planners and lecturers to enter availabilities for teaching times and suitable rooms regarding courses. 
   %\item% 
-  This interface can automatically generate a timetable within seconds, ensuring compliance with the required constraints among curricula. 
+  This interface can automatically generate a timetable within seconds, ensuring compliance with the required constraints among curricula across all  involved institutes and planners. 
   %\item%
   The idea is to find a solution from the time slots specified by lecturers rather than permitting any course to potentially take place at any time slot.
   %\item%
-  As a goal, the obtained timetables should automatically result into corresponding room reservations at universities course catalog.  
-  %\item% 
-  In comparing the new and traditional approach, we sketch resolved redundancies, time savings and possible future benefits. 
+  As a goal, the obtained timetables should automatically result into corresponding room reservations at universities course catalog. \\
+  %\item%
+  The remaining article first compares the traditional and new appraoch of solving \CBCTT{} problems at the \UP{} in Section~\ref{sec:approach}. 
+  %\item%
+  In Section~\ref{sec:asp}, we introduce basics of our knowledge representation and reasoning approach and illustrate modeled constraints. 
+  %\item%
+  Afterwards, in Sections~\ref{sec:impact} and \ref{sec:future}, we sketch resolved redundancies, time savings and possible future benefits.
 %\end{itemize}%
 
 
 %------------------------------------------------------------------------------
-\section{Approach}
+\section{Overall Approach}
 \label{sec:approach}
 
 %\begin{itemize}% 
@@ -174,9 +180,9 @@ Sebastian Schellhorn
   %\item% 
   In the traditional case, lectures with a large number of participants are planned first, due to a limited number of large lecture halls and imports/exports of courses among curricula. 
   %\item% 
-  The resulting timetable regarding large lectures, needs a lot of communication and agreements among several planners to ensure a conflict-free timetable for involved cohorts and lecturers. 
+  The resulting timetable regarding large lectures needs a lot of communication and agreements among several planners to ensure a conflict-free timetable for involved cohorts and lecturers. 
   %\item% 
-  Especially, in the case of degree programmes that aim to train teachers with allowed combinations of subjects, \UP{} has developed a time frame model to prevent conflicts among courses of most common combinations of topics\footnote{https://www.uni-potsdam.de/en/studium/studying/organizing-your-studies/potsdams-time-frame-model}.
+  Especially, in the case of degree programmes that aim to train teachers with allowed combinations of subjects, \UP{} has developed a so called time frame model to prevent conflicts among courses of most common combinations of topics\footnote{https://www.uni-potsdam.de/en/studium/studying/organizing-your-studies/potsdams-time-frame-model}.
   %\item% 
   On top of scheduled large lectures, the remaining courses are planned by the respective planners of each institute to achieve suitable timetables. 
   %\item% 
@@ -184,7 +190,7 @@ Sebastian Schellhorn
   %\item% 
   A timetable is considered more optimal, if it respects for instance traveling time of consecutive courses, teaching load per day and gaps among courses of a day aiming on same cohort or lecturer, respectively. 
   %\item% 
-  Once a solution is found, each planner must manually to copy it, course by course, to the universities course catalog, link each course to examination tasks of particular modules and book a room for the assigned time slot. \\
+  Once a solution is found, each planner must manually copy it, course by course, to the universities course catalog, link each course to examination tasks of particular modules and book a room for the assigned time slot. \\
   %\item% 
   Our approach aims to minimize time-consuming communication among planners and lecturers, as well as reduce redundancies when a solution is found but needs to be copied to the course catalog, linked to modules, and booked into rooms.
   %\item% 
@@ -224,7 +230,7 @@ Sebastian Schellhorn
   As an example of a resulting timetable see figure~\ref{fig:timetable}. 
   \begin{figure}
     \includegraphics[width=\linewidth]{timetable}
-    \caption{Resulting timetable containing about 200 course components of the Faculty of Science for summer 2024.}
+    \caption{Part of the resulting timetable containing about 200 course components at the Faculty of Science for summer term 2024.}
     \label{fig:timetable}
   \end{figure} \\
   %\item% 
@@ -237,7 +243,7 @@ Sebastian Schellhorn
 
 
 %------------------------------------------------------------------------------
-\section{\ASP{} Paradigm}
+\section{Technical Solution: \ASP{} Paradigm}
 \label{sec:asp}
 %\begin{itemize}%
   %\item% 
@@ -264,7 +270,7 @@ Sebastian Schellhorn
     \put(   0,-55){\makebox(0,0){{Solving}}}
     \end{picture}}
     \end{center}
-  \caption{Declarative problem solving.}
+  \caption{Schematic representation of declarative problem solving process.}
   \end{figure} \\
   %\item% 
   An easy and human-readable modeling language \cite{cafageiakakrlemarisc19a} is used to create a logic program modeling the original problem. 
@@ -330,7 +336,7 @@ Sebastian Schellhorn
   %\item% 
   As an example, consider rule 
   \lstinputlisting[basicstyle=\ttfamily\small, firstline=27, lastline=31]{example.lp} %TODO: Listing style von potassco solution 
-  deriving a conflict among two course components of ``AI'' lecture and exercise that shall take place consecutive, whenever they are scheduled on different days.\footnote{In the syntax of an \ASP{} encoding `$\leftarrow$' is represented by `$:-$' and each rule terminates by a period `.'.}  \\
+  deriving a conflict among two course components of ``AI'' lecture and exercise that shall take place consecutive, whenever they are scheduled on a different day than friday.\footnote{In the syntax of an \ASP{} encoding `$\leftarrow$' is represented by `$:-$' and each rule terminates by a period `.'.}  \\
   %\item%
   A logic program is a finite set of rules. 
   %\item% 
@@ -359,7 +365,7 @@ Sebastian Schellhorn
   %\item% 
   Let $X$ be the set containing atoms of lines 1-21. 
   %\item% 
-  Note that $X$ is not a model of $_1$, since the body of rule in line 22 is satisfied, but not its head. 
+  Note that $X$ is not a model of $P_1$, since the body of rule in line 22 is satisfied, but not its head. 
   %\item% 
   Sets 
   \begin{align*}
@@ -377,11 +383,15 @@ Sebastian Schellhorn
   \end{align*} \\
   %\item% 
   The basic approach of modeling a problem by an \ASP{} encoding follows a generate-and-test methodology, also known as guess-and-check, inspired by intuitions on \textit{NP} problems. 
+  %\item% 
+  NP problems are problems, where no algorithm is known to solve them in polynomial time. 
+  %\item%
+  Intuitively, NP problems are hard to solve, since the needed time may grow exponentially. 
   %\item%  
-  In the case of \CBCTT{}, one could think of generating any timetable as a model and eliminating certain models by imposing specific (hard) constraints.
+  In the case of \CBCTT{} for a generate-and-test methodology, one could think of generating any timetable as a model and eliminating certain models by imposing specific (hard) constraints.
 %\end{itemize}%
 
-\subsection{Modeling \CBCTT{} of \UP{}}
+\subsection{Modeling Curriculum-Based Course Timetabling}% at the University of Potsdam}
 \label{subsec:modeling}
 %\begin{itemize}%
   %\item% 
@@ -432,7 +442,7 @@ Sebastian Schellhorn
   %\item%
   The system of \cite{bainkaokscsotawa18a} reads instances in a standard input format \cite{bocegasc12a}, translates them into \ASP{} facts and assigns potentially any course to any time slot. 
   %\item%
-  In contrast, we employed a direct modeling approach tailored to the constraints and requirements of the \UP{}, which partially is not covered by the standard input format. 
+  In contrast, we employed a direct modeling approach tailored to the constraints and requirements of the \UP{}, which partially is not covered by the standard input format of the \CBCTT{} community. 
   %\item%
   As a design decision, we reduced the search space to collected availabilities only, rather than of checking for all possible time slots and rooms for each course component.
 %\end{itemize}%
@@ -445,9 +455,9 @@ Sebastian Schellhorn
   %\item%
   In \cite{bainkaokscsotawa18a}, it was demonstrated that addressing \CBCTT{} problems through an \ASP{}-based approach outperforms other state-of-the-art approaches and thus makes it well-suited to tackle \CBCTT{} problems. 
   %\item% 
-  Our real world approach is still at a prototypical stage and it is lacking access to some data needed to apply all presented and modeled constraints. \\
+  Our real world approach is still at a prototypical stage and it is lacking (automated) access to some data needed to apply all presented and modeled constraints. \\
   %\item%
-  For the winter semester of 2023/24, an optimal and conflict-free plan was found for approximately 160 courses aimed at big lecture halls of the Faculty of Science, additional 90 courses of the Institute of Mathematics and 100 courses of the Institute of Computer Science, incorporating constraints H1, H3, H5, S0, S1 and S7 from the above \ASP{}-based modeling. 
+  For the winter semester of 2023/24, an optimal and conflict-free plan was found for approximately 160 courses aimed at large lecture halls of the Faculty of Science, additional 90 courses of the Institute of Mathematics and 100 courses of the Institute of Computer Science, incorporating constraints H1, H3, H5, S0, S1 and S7 from the above \ASP{}-based modeling. 
   %\item% 
   Analogously, for the summer semester of 2024, an optimal and conflict-free plan was found involving about 200 courses and constraints H0, H1, H3, H5, H6, H7, H8, S0, S1, S4 and S7.  
   %\item% 
@@ -471,7 +481,7 @@ Sebastian Schellhorn
   %\item% 
   Thus, our approach provides planners with the opportunity to allocate their additional available time to other tasks. \\
   %\item% 
-  Once the integration of the resulting timetable into the university's course catalog is done automatically, even more redundancies are resolved, and a considerable amount of additional capacities become available. 
+  Once the integration of the resulting timetable into the university's course catalog is done automatically, even more redundancies are resolved, and a considerable amount of additional human capacities become available. 
   %\item% 
   Due to our current prototypical state, we have not yet conducted a performance comparison with other approaches\cite{feutrier23a}. 
 %\end{itemize}%
@@ -508,7 +518,7 @@ Sebastian Schellhorn
   %\item% 
   One could consider possibly leveraging entered availabilities and the number of participants to derive the location, size, and quantity of needed lecture halls and seminar rooms when planning to build new ones. \\
   %\item% 
-  Finally, our approach has significant potential to eliminate redundant workflows, save money, and elevate administrative planning tasks to the next level. 
+  Finally, our approach has significant potential to eliminate redundant workflows, promotes trustworthy collaborations among institutes, save money, and elevate administrative planning tasks to the next level. 
 %\end{itemize}% 
 
 
