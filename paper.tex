@@ -232,7 +232,7 @@ Sebastian Schellhorn
   As an example of a resulting timetable see figure~\ref{fig:timetable}. 
   \begin{figure}
     \includegraphics[width=\linewidth]{timetable}
-    \caption{Part of the resulting timetable containing about 200 course components at the Faculty of Science for summer term 2024.}
+    \caption{Part of the resulting timetable containing about 200 course components at the Faculty of Science for summer term 2024. Green indicates lectures, red exercises, blue seminars and yellow projects.}
     \label{fig:timetable}
   \end{figure} \\
   %\item% 
@@ -467,7 +467,9 @@ Sebastian Schellhorn
   %\item% 
   Finding plans for each institute took less than a second. 
   %\item%
-  The time required to solve these problems relative to the number of involved courses highlights the exponential complexity inherent in \CBCTT{} problems. 
+  The time required to solve these problems relative to the number of involved courses highlights the exponential complexity inherent in \CBCTT{} problems.
+  %\item%
+  In practice, solving a problem with a larger number of courses may require days until finding an optimal solution and thus become possibly inconvenient in usage.
   %\item% 
   For this reason, it is crucial to maintain a workflow that breaks down the planning task into several smaller tasks, similar to the traditional approach. \\
   %\item% 
@@ -478,7 +480,7 @@ Sebastian Schellhorn
   It is possible to add new constraints or relax existing ones whenever needed to address the particular demands of institutes or faculties. 
   %\item% 
   Planners and lecturers can set a prioritized selection of availabilities and preferences for upcoming teaching periods, resulting in an optimal and provably conflict-free timetable.
-  %\item% 
+  %\item%
   Obtaining a conflict-free timetable for a faculty in a matter of seconds, while respecting dependencies among the several institutes at the same time, resolves a significant amount of communication overhead and conflicts inherent in the traditional approach. 
   %\item% 
   Thus, our approach provides planners with the opportunity to allocate their additional available time to other tasks. \\
@@ -504,7 +506,11 @@ Sebastian Schellhorn
   %\item% 
   Furthermore, we plan to develop an interface that allows us to automatically push final timetables to the university's course catalog. \\
   %\item% 
-  Another non-trivial task is to provide opportunities to the user to analyze and solve conflicts whenever needed.  
+  Due to the reduced search space by concerning availabilities only, we may run into conflicts and cannot find any plan.  
+  %\item$
+  To address the non-trivial task to resolve conflicts, we plan to provide opportunities to the user to analyze and resolve conflicts whenever needed. 
+  %\item%
+  Another feature one could think about to take advantage of older plans, is to allow an option to copy previous availabilities adapted to the result of a previous solution. 
   %\item% 
   In a next step, we plan to expand the number of users and involve them in a feedback loop to enhance the usage of the system and identify additional needs.
   %\item% 
